@@ -24,7 +24,7 @@
   --raisin-black_90: hsla(240, 8%, 12%, 0.9);
   --raisin-black-1: hsl(240, 8%, 17%);
   --raisin-black-2: hsl(240, 8%, 12%);
-  --majorelle-blue: hsl(241, 77%, 63%);
+  --digilynk-dark-blue: hsl(241, 77%, 63%);
   --blue-ryb_80: hsla(241, 88%, 60%, 0.8);
   --bittersweet: hsl(0, 100%, 69%);
   --eerie-black: hsl(0, 0%, 13%);
@@ -33,11 +33,13 @@
   --slate-gray: hsl(225, 8%, 48%);
   --cool-gray: hsl(225, 11%, 59%);
   --gainsboro: hsl(217, 16%, 90%);
-  --mustard: hsl(47, 100%, 69%);
+  --digilynk-theme-blue: hsl(47, 100%, 69%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
   --onyx: hsl(240, 5%, 26%);
   --jet: hsl(0, 0%, 21%);
+  --digilynk-theme-blue: #0f6bfd;
+  --digilynk-dark-blue: #091540;
 
   /**
    * gradient
@@ -222,7 +224,8 @@ body {
   left: 0;
   width: 100%;
   height: 6px;
-  background-color: var(--mustard);
+  /* background-color: var(--digilynk-theme-blue); */
+  background-color: var(--digilynk-theme-blue);
   z-index: -1;
 }
 
@@ -244,7 +247,7 @@ body {
   width: 100%;
   height: 50%;
   transform: scaleX(0);
-  background-color: var(--mustard);
+  background-color: var(--jet);
   z-index: -1;
   transition: transform var(--transition-1);
 }
@@ -267,14 +270,15 @@ body {
 .btn:is(:hover, :focus)::after { transform-origin: left; }
 
 .btn-primary {
-  background-color: var(--majorelle-blue);
+  background-color: var(--digilynk-dark-blue);
   color: var(--white);
+  font-size: 1.5rem;
 }
 
-.btn-primary:is(:hover, :focus) { color: var(--raisin-black-1); }
+.btn-primary:is(:hover, :focus) { color: var(--white); }
 
 .btn-secondary {
-  background-color: var(--mustard);
+  background-color: var(--digilynk-theme-blue);
   color: var(--raisin-black-1);
   gap: 15px;
 }
@@ -299,7 +303,7 @@ body {
   position: static;
   width: 12px;
   height: 12px;
-  background-color: var(--mustard);
+  background-color: var(--digilynk-theme-blue);
   display: inline-block;
   border-radius: 50%;
   margin-inline-end: 10px;
@@ -428,7 +432,7 @@ body {
   transition: var(--transition-1);
 }
 
-.navbar-link:is(:hover, :focus) { color: var(--mustard); }
+.navbar-link:is(:hover, :focus) { color: var(--digilynk-theme-blue); }
 
 .overlay {
   position: fixed;
@@ -482,7 +486,7 @@ body {
   transition: var(--transition-1);
 }
 
-.hero-btn:is(:hover, :focus) { color: var(--majorelle-blue); }
+.hero-btn:is(:hover, :focus) { color: var(--digilynk-dark-blue); }
 
 .hero-btn ion-icon { font-size: 24px; }
 
@@ -534,6 +538,11 @@ body {
   border-block-end: 3px solid transparent;
   box-shadow: var(--shadow-3);
   transition: var(--transition-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
 }
 
 .service-card:is(:hover, :focus-within) { border-color: hsl(var(--color)); }
@@ -566,10 +575,10 @@ body {
   transition: var(--transition-1);
 }
 
-.service .link-card:is(:hover, :focus) .span { color: var(--majorelle-blue); }
+.service .link-card:is(:hover, :focus) .span { color: var(--digilynk-dark-blue); }
 
 .service .link-card ion-icon {
-  color: var(--majorelle-blue);
+  color: var(--digilynk-dark-blue);
   font-size: 150px;
   transform: rotate(-45deg);
   margin: -25px auto;
@@ -579,6 +588,50 @@ body {
 .service .link-card:is(:hover, :focus) ion-icon { color: hsl(var(--color)); }
 
 
+.card-button-custom {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-button-custom:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background: #383f51;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-button-custom:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+.card-button-custom span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 25px;
+  color: --jet;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  z-index: 1;
+  transition: all 0.1s ease-in-out;
+}
+
+.card-button-custom:hover {
+  color: #fff;
+}
 
 
 
@@ -676,7 +729,7 @@ body {
   top: 50%;
   left: 20px;
   right: 20px;
-  background-color: var(--mustard);
+  background-color: var(--digilynk-theme-blue);
   border-radius: var(--radius-10);
   padding: 30px 20px;
   text-align: center;
@@ -720,7 +773,7 @@ body {
 }
 
 .email-field {
-  background-color: var(--majorelle-blue);
+  background-color: var(--digilynk-dark-blue);
   color: var(--white);
   font-size: var(--fs-9);
   min-height: 60px;
@@ -783,7 +836,7 @@ body {
 }
 
 .blog-card .tag {
-  color: var(--majorelle-blue);
+  color: var(--digilynk-dark-blue);
   font-size: var(--fs-9);
   font-weight: var(--fw-700);
   text-transform: uppercase;
@@ -815,7 +868,7 @@ body {
   transition: var(--transition-1);
 }
 
-.blog-card .card-title:is(:hover, :focus) { color: var(--majorelle-blue); }
+.blog-card .card-title:is(:hover, :focus) { color: var(--digilynk-dark-blue); }
 
 
 
@@ -855,7 +908,7 @@ body {
 }
 
 .footer .social-link:is(:hover, :focus) {
-  background-color: var(--majorelle-blue);
+  background-color: var(--digilynk-dark-blue);
   color: var(--white);
 }
 
@@ -865,7 +918,7 @@ body {
   transition: var(--transition-1);
 }
 
-.footer-link:is(:hover, :focus) { color: var(--mustard); }
+.footer-link:is(:hover, :focus) { color: var(--digilynk-theme-blue); }
 
 .insta-post {
   display: grid;
@@ -910,7 +963,7 @@ body {
 
 .footer-bottom-link { transition: var(--transition-1); }
 
-.footer-bottom-link:is(:hover, :focus) { color: var(--mustard); }
+.footer-bottom-link:is(:hover, :focus) { color: var(--digilynk-theme-blue); }
 
 
 
@@ -924,7 +977,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 30px;
-  background-color: var(--majorelle-blue);
+  background-color: var(--digilynk-dark-blue);
   color: var(--white);
   font-size: 18px;
   padding: 16px;
@@ -1226,7 +1279,7 @@ body {
     width: 0;
     height: 4px;
     border-radius: 5px;
-    background-color: var(--majorelle-blue);
+    background-color: var(--digilynk-dark-blue);
     transition: var(--transition-1);
   }
 
@@ -1246,7 +1299,7 @@ body {
    */
 
   .hero {
-    background-image: linear-gradient(to right, var(--white) 79%, var(--mustard) 79%);
+    background-image: linear-gradient(to right, var(--white) 79%, var(--digilynk-theme-blue) 79%);
     overflow: hidden;
   }
 
@@ -1260,7 +1313,13 @@ body {
   .hero .btn,
   .hero-btn .span { flex-shrink: 0; }
 
-  .hero-banner { margin-inline-end: -140px; }
+  .hero-banner { margin-inline-end: -140px;}
+  .hero-banner img{
+    /* max-height:300px;
+    max-width: 350px; */
+    max-height: 466.7142857142857px;
+    max-width: 544.5px;
+  }
 
 
 
